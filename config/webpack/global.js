@@ -108,6 +108,9 @@ module: {
     ]
 },
 
+
+
+
 // load plugins
 plugins: [
 new webpack.LoaderOptionsPlugin({
