@@ -13,8 +13,7 @@ var DEVELOPMENT = NODE_ENV === "production" ? false : true;
 var stylesLoader = 'css-loader?root=' + rootPublic + '&sourceMap!postcss-loader!sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true';
 
 module.exports = function (_path) {
-    // var rootAssetPath = _path + 'src';
-
+    var rootAssetPath = _path + 'src';
     var webpackConfig = {
 // entry points
 entry: {
@@ -31,12 +30,12 @@ output: {
 // resolves modules
 resolve: {
     extensions: ['.js', '.es6', '.jsx', '.scss', '.css'],
-    // alias: {
-    //     _appRoot: path.join(_path, 'src', 'app'),
-    //     _images: path.join(_path, 'src', 'app', 'assets', 'images'),
-    //     _stylesheets: path.join(_path, 'src', 'app', 'assets', 'styles'),
-    //     _scripts: path.join(_path, 'src', 'app', 'assets', 'js')
-    // }
+    alias: {
+        _appRoot: path.join(_path, 'src', 'app'),
+        _images: path.join(_path, 'src', 'app', 'assets', 'images'),
+        _stylesheets: path.join(_path, 'src', 'app', 'assets', 'styles'),
+        _scripts: path.join(_path, 'src', 'app', 'assets', 'js')
+    }
 },
 
 // modules resolvers
@@ -79,7 +78,7 @@ module: {
         ]
     }, {
         test: /\.(scss|sass)$/,
-        loader: DEVELOPMENT ? ('style-loader!' + stylesLoader) : ExtractTextPlugin.extract({
+        loader: ExtractTextPlugin.extract({
             fallbackLoader: "style-loader",
             loader: stylesLoader
         })
@@ -139,10 +138,10 @@ new webpack.optimize.CommonsChunkPlugin({
     children: true,
     minChunks: Infinity
 }),
-// new Manifest(path.join(_path + '/config', 'manifest.json'), {
-//     rootAssetPath: rootAssetPath,
-//     ignorePaths: ['.DS_Store']
-// }),
+new Manifest(path.join(_path + '/config', 'manifest.json'), {
+    rootAssetPath: rootAssetPath,
+    ignorePaths: ['.DS_Store']
+}),
 new ExtractTextPlugin({
     filename: 'assets/styles/css/[name]' + (NODE_ENV === 'development' ? '' : '.[chunkhash]') + '.css',
     allChunks: true

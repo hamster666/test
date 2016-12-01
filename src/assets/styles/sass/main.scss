@@ -1,11 +1,13 @@
+h1 {
+    color: red;
+}
+
 @import './generic/reset';
 @import './generic/bootstrap-grid.scss';
 
-// $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-// @import '~bootstrap-sass/assets/stylesheets/mixins/_grid.scss';
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 @import './elements/headings.scss';
-// @import './sprite';
 
 @font-face {
   font-family: 'Open Sans';
