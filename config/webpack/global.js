@@ -14,11 +14,10 @@ var stylesLoader = 'css-loader?root=' + rootPublic + '&sourceMap!postcss-loader!
 
 module.exports = function (_path) {
     var rootAssetPath = _path + 'src';
-
     var webpackConfig = {
 // entry points
 entry: {
-    app: _path + '/src/app/index.bootstrap.js'
+    app: _path + '/src/app/app.module.js'
 },
 
 // output system
@@ -79,7 +78,7 @@ module: {
         ]
     }, {
         test: /\.(scss|sass)$/,
-        loader: DEVELOPMENT ? ('style-loader!' + stylesLoader) : ExtractTextPlugin.extract({
+        loader: ExtractTextPlugin.extract({
             fallbackLoader: "style-loader",
             loader: stylesLoader
         })
@@ -108,6 +107,9 @@ module: {
     ]
 },
 
+
+
+
 // load plugins
 plugins: [
 new webpack.LoaderOptionsPlugin({
@@ -125,7 +127,7 @@ moment: 'moment',
 new webpack.DefinePlugin({
     'NODE_ENV': JSON.stringify(NODE_ENV)
 }),
-new webpack.NoErrorsPlugin(),
+// new webpack.NoErrorsPlugin(),
 new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
 new webpack.optimize.AggressiveMergingPlugin({
     moveToParents: true

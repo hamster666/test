@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "description": "Provident insurance front end",
   "homepage": "",
+  "repository" : "",
+  "license": "",
   "bin": {
     "cross-env": "./node_modules/cross-env/bin/cross-env.js",
     "webpack": "./node_modules/webpack/bin/webpack.js",

@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html ng-app="app">
 <head>
     <meta charset="utf-8">
-    <title>Angular Webpack ES6 Project</title>
+    <title>Angular Project</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -15,13 +15,17 @@
     <% } %>
 </head>
 <body>
+
     <!--[if lt IE 9]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <app-header></app-header>
 
-    <div ui-view></div>
+    <div class="container">
+        <div ui-view></div>
+    </div>
+
 
     <!-- <app-footer></app-footer> -->
 

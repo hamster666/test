@@ -1,1 +1,1 @@
-{"assets":{"app.js":"app.js","app.map":"app.js.map"},"publicPath":"/"}
+{"assets":{"app.js":"app.js","app.css":"assets/styles/css/app.css","app.map":"assets/styles/css/app.css.map"},"publicPath":"/"}
