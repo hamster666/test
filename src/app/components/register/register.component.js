@@ -1,16 +1,16 @@
-import { templateUrl } from './register.html';
+import templateUrl from './register.html';
 
 export const RegisterComponent = {
+    bindings: {
+    },
     templateUrl,
     controller: class RegisterComponent {
         constructor() {
             'ngInject'; 
+            console.log('hello from register');
         }
         $onInit() {
-            this.newTodo = {
-                title: '',
-                selected: false
-            };
+            this.testing = "hello hello"
         }
     }
 };

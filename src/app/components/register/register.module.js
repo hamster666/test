@@ -1,7 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import { RegisterComponent } from './register.component';
-import './register.scss';
+import { CommonModule } from '../../common/common.module';
 
 export const RegisterModule = angular
 .module('register', [
@@ -10,6 +10,9 @@ export const RegisterModule = angular
 .component('register', RegisterComponent)
 .config(($stateProvider, $urlRouterProvider) => {
     'ngInject';
+    
+    console.log(RegisterComponent);
+
     $stateProvider
     .state('register', {
         url: '/register',
